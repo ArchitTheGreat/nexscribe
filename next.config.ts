@@ -1,4 +1,4 @@
-const nextra = require('nextra')({
+const withNextra = require('nextra')({
   theme: 'nextra-theme-blog',
   themeConfig: './theme.config.tsx',
   mdxOptions: {
@@ -8,10 +8,7 @@ const nextra = require('nextra')({
   defaultShowCopyCode: true,
 });
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = withNextra({
   reactStrictMode: true,
-  swcMinify: true,
-};
-
-module.exports = nextra(nextConfig);
+  // Remove swcMinify as it's no longer needed
+});
