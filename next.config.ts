@@ -1,7 +1,17 @@
-import type { NextConfig } from "next";
+const nextra = require('nextra')({
+  theme: 'nextra-theme-blog',
+  themeConfig: './theme.config.tsx',
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+  defaultShowCopyCode: true,
+});
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
-export default nextConfig;
+module.exports = nextra(nextConfig);
